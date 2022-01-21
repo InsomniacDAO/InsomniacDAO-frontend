@@ -49,28 +49,13 @@ The files/folder structure are a  **WIP** and may contain some unused files. The
 ## 🚀 Deployment
 Auto deployed on [Fleek.co](http://fleek.co/) fronted by [Cloudflare](https://www.cloudflare.com/). Since it is hosted via IPFS there is no running "server" component and we don't have server sided business logic. Users are served an `index.html` and javascript to run our applications. 
 
-_**TODO**: TheGraph implementation/how/why we use it._
-
-
 ### Continuous deployment
 TBD
 
 **Pull Requests**:
 Each PR into master will get its own custom URL that is visible on the PR page. QA & validate changes on that URL before merging into the deploy branch. 
 
-
 ## 👏🏽 Contributing Guidelines 
-
-We keep an updated list of bugs/feature requests in [Github Issues](https://github.com/InsomniacDAO/InsomniacDAO/issues). 
-
-
-![GitHub issues](https://img.shields.io/github/issues/InsomniacDAO/InsomniacDAO?style=flat-square)
-
-Filter by ["good first issue"](https://github.com/InsomniacDAO/InsomniacDAO/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) to get your feet wet!
-Once you submit a PR, our CI will generate a temporary testing URL where you can validate your changes. Tag any of the gatekeepers on the review to merge them into master. 
-
-*__NOTE__*: For big changes associated with feature releases/milestones, they will be merged onto the `develop` branch for more thorough QA before a final merge to `master`
-
 
 
 ## 🗣 Community
