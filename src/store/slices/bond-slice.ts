@@ -10,7 +10,7 @@ import { Bond } from "../../helpers/bond/bond";
 import { Networks } from "../../constants/blockchain";
 import { getBondCalculator } from "../../helpers/bond-calculator";
 import { RootState } from "../store";
-import { avaxRug, wavax, benqi, avaxRugRlp, usdcRugRlp, timeRugRlp } from "../../helpers/bond";
+import { avaxSleep, wavax, benqi, avaxSleepRlp, usdcSleepRlp, timeSleepRlp } from "../../helpers/bond";
 import { error, warning, success, info } from "../slices/messages-slice";
 import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
@@ -129,8 +129,8 @@ export const calcBondDetails = createAsyncThunk(
       bondPrice = await bondContract.bondPriceInUSD();
 
       switch (bond.name) {
-        case avaxRug.name:
-        case avaxRugRlp.name:
+        case avaxSleep.name:
+        case avaxSleepRlp.name:
           const avaxPrice = getTokenPrice("AVAX");
           bondPrice = bondPrice * avaxPrice;
           break;
@@ -138,11 +138,11 @@ export const calcBondDetails = createAsyncThunk(
           const benqiPrice = getTokenPrice("QI");
           bondPrice = bondPrice * benqiPrice;
           break;
-        case usdcRugRlp.name:
+        case usdcSleepRlp.name:
           const usdcPrice = getTokenPrice("USDC");
           bondPrice = bondPrice * usdcPrice;
           break;
-        case timeRugRlp.name:
+        case timeSleepRlp.name:
           const timePrice = getTokenPrice("TIME");
           bondPrice = bondPrice * timePrice;
           break;
@@ -193,7 +193,7 @@ export const calcBondDetails = createAsyncThunk(
       purchased = await bondCalcContract.valuation(assetAddress, purchased);
       purchased = (markdown / Math.pow(10, 18)) * (purchased / Math.pow(10, 9));
 
-      if (bond.name === avaxRug.name || bond.name === avaxRugRlp.name) {
+      if (bond.name === avaxSleep.name || bond.name === avaxSleepRlp.name) {
         const avaxPrice = getTokenPrice("AVAX");
         purchased = purchased * avaxPrice;
       }

@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { StakingContract, SRugTokenContract, RugTokenContract } from "../../abi";
+import { StakingContract, RestContract, SleepTokenContract } from "../../abi";
 import { setAll } from "../../helpers";
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
 import { JsonRpcProvider } from "@ethersproject/providers";
@@ -26,14 +26,14 @@ export const loadAppDetails = createAsyncThunk(
     const stakingContract = new ethers.Contract(addresses.STAKING_ADDRESS, StakingContract, provider);
     const currentBlock = await provider.getBlockNumber();
     const currentBlockTime = (await provider.getBlock(currentBlock)).timestamp;
-    const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
-    const rugContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
+    const restContract = new ethers.Contract(addresses.SRUG_ADDRESS, RestContract, provider);
+    const sleepContract = new ethers.Contract(addresses.RUG_ADDRESS, SleepTokenContract, provider);
 
     const marketPrice = ((await getMarketPrice(networkID, provider)) / Math.pow(10, 9)) * mimPrice;
 
-    const burnedSupply = (await rugContract.balanceOf(addresses.BURN_ADDRESS)) / Math.pow(10, 9);
-    const totalSupply = (await rugContract.totalSupply()) / Math.pow(10, 9) - burnedSupply;
-    const circSupply = (await srugContract.circulatingSupply()) / Math.pow(10, 9);
+    const burnedSupply = (await sleepContract.balanceOf(addresses.BURN_ADDRESS)) / Math.pow(10, 9);
+    const totalSupply = (await sleepContract.totalSupply()) / Math.pow(10, 9) - burnedSupply;
+    const circSupply = (await restContract.circulatingSupply()) / Math.pow(10, 9);
 
     const stakingTVL = circSupply * marketPrice;
     const marketCap = totalSupply * marketPrice;
@@ -46,7 +46,7 @@ export const loadAppDetails = createAsyncThunk(
     const tokenAmounts = await Promise.all(tokenAmountsPromises);
     const rfvTreasury = tokenAmounts.reduce((tokenAmount0, tokenAmount1) => tokenAmount0 + tokenAmount1, wbtcAmount);
 
-    const timeBondsAmountsPromises = allBonds.map(bond => bond.getRugAmount(networkID, provider));
+    const timeBondsAmountsPromises = allBonds.map(bond => bond.getSleepAmount(networkID, provider));
     const timeBondsAmounts = await Promise.all(timeBondsAmountsPromises);
     const timeAmount = timeBondsAmounts.reduce((timeAmount0, timeAmount1) => timeAmount0 + timeAmount1, 0);
     const timeSupply = totalSupply - timeAmount;
@@ -55,7 +55,7 @@ export const loadAppDetails = createAsyncThunk(
 
     const epoch = await stakingContract.epoch();
     const stakingReward = epoch.distribute;
-    const circ = await srugContract.circulatingSupply();
+    const circ = await restContract.circulatingSupply();
     const stakingRebase = stakingReward / circ;
     const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
     const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;

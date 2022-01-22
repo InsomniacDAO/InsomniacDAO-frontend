@@ -38,7 +38,7 @@ function Stake() {
     return state.app.fiveDayRate;
   });
   const timeBalance = useSelector<IReduxState, string>(state => {
-    return state.account.balances && state.account.balances.rug;
+    return state.account.balances && state.account.balances.sleep;
   });
   const warmupBalance = useSelector<IReduxState, string>(state => {
     return state.account.warmupInfo && state.account.warmupInfo.deposit;
@@ -53,13 +53,13 @@ function Stake() {
     return state.account.warmupInfo && state.account.warmupInfo.epoch;
   });
   const memoBalance = useSelector<IReduxState, string>(state => {
-    return state.account.balances && state.account.balances.srug;
+    return state.account.balances && state.account.balances.sleep;
   });
   const stakeAllowance = useSelector<IReduxState, number>(state => {
-    return state.account.staking && state.account.staking.rug;
+    return state.account.staking && state.account.staking.sleep;
   });
   const unstakeAllowance = useSelector<IReduxState, number>(state => {
-    return state.account.staking && state.account.staking.srug;
+    return state.account.staking && state.account.staking.sleep;
   });
   const stakingRebase = useSelector<IReduxState, number>(state => {
     return state.app.stakingRebase;
@@ -124,8 +124,8 @@ function Stake() {
 
   const hasAllowance = useCallback(
     token => {
-      if (token === "rug") return stakeAllowance > 0;
-      if (token === "srug") return unstakeAllowance > 0;
+      if (token === "sleep") return stakeAllowance > 0;
+      if (token === "sleep") return unstakeAllowance > 0;
       return 0;
     },
     [stakeAllowance],
@@ -157,7 +157,7 @@ function Stake() {
           <Grid className="stake-card-grid" container direction="column" spacing={2}>
             <Grid item>
               <div className="stake-card-header">
-                <p className="stake-card-header-title">RUG Staking (🚩, 🚩)</p>
+                <p className="stake-card-header-title">SLEEP Staking (🚩, 🚩)</p>
                 <RebaseTimer />
               </div>
             </Grid>
@@ -179,7 +179,7 @@ function Stake() {
                               `'Big' - trust me bro...`
                             </p>
 
-                            <Popper className="rug-menu-popper tooltip" open={open} anchorEl={anchorEl} transition>
+                            <Popper className="sleep-menu-popper tooltip" open={open} anchorEl={anchorEl} transition>
                               {({ TransitionProps }) => (
                                 <Fade {...TransitionProps} timeout={200}>
                                   <p className="tooltip-item">
@@ -202,7 +202,7 @@ function Stake() {
                     <div className="stake-card-index">
                       <p className="stake-card-metrics-title">Current Index</p>
                       <p className="stake-card-metrics-value">
-                        {currentIndex ? <>{trim(Number(currentIndex), 2)} RUG</> : <Skeleton width="150px" />}
+                        {currentIndex ? <>{trim(Number(currentIndex), 2)} SLEEP</> : <Skeleton width="150px" />}
                       </p>
                     </div>
                   </Grid>
@@ -225,7 +225,7 @@ function Stake() {
                   <div className="stake-card-wallet-connect-btn" onClick={connect}>
                     <p>Connect Wallet</p>
                   </div>
-                  <p className="stake-card-wallet-desc-text">Connect your wallet to stake RUG tokens!</p>
+                  <p className="stake-card-wallet-desc-text">Connect your wallet to stake SLEEP tokens!</p>
                 </div>
               )}
               {address && (
@@ -265,7 +265,7 @@ function Stake() {
 
                       {view === 0 && (
                         <div className="stake-card-tab-panel">
-                          {address && hasAllowance("rug") ? (
+                          {address && hasAllowance("sleep") ? (
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
@@ -273,14 +273,14 @@ function Stake() {
                                 onChangeStake("stake");
                               }}
                             >
-                              <p>{txnButtonText(pendingTransactions, "staking", "Stake RUG")}</p>
+                              <p>{txnButtonText(pendingTransactions, "staking", "Stake SLEEP")}</p>
                             </div>
                           ) : (
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
                                 if (isPendingTxn(pendingTransactions, "approve_staking")) return;
-                                onSeekApproval("rug");
+                                onSeekApproval("sleep");
                               }}
                             >
                               <p>{txnButtonText(pendingTransactions, "approve_staking", "Approve")}</p>
@@ -291,7 +291,7 @@ function Stake() {
 
                       {view === 1 && (
                         <div className="stake-card-tab-panel">
-                          {address && hasAllowance("srug") ? (
+                          {address && hasAllowance("sleep") ? (
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
@@ -299,14 +299,14 @@ function Stake() {
                                 onChangeStake("unstake");
                               }}
                             >
-                              <p>{txnButtonText(pendingTransactions, "unstaking", "Unstake RUG")}</p>
+                              <p>{txnButtonText(pendingTransactions, "unstaking", "Unstake SLEEP")}</p>
                             </div>
                           ) : (
                             <div
                               className="stake-card-tab-panel-btn"
                               onClick={() => {
                                 if (isPendingTxn(pendingTransactions, "approve_unstaking")) return;
-                                onSeekApproval("srug");
+                                onSeekApproval("sleep");
                               }}
                             >
                               <p>{txnButtonText(pendingTransactions, "approve_unstaking", "Approve")}</p>
@@ -317,9 +317,9 @@ function Stake() {
                     </div>
 
                     <div className="stake-card-action-help-text">
-                      {address && ((!hasAllowance("rug") && view === 0) || (!hasAllowance("srug") && view === 1)) && (
+                      {address && ((!hasAllowance("sleep") && view === 0) || (!hasAllowance("sleep") && view === 1)) && (
                         <p>
-                          Note: The "Approve" transaction is only needed when staking/unstaking for the first rug;
+                          Note: The "Approve" transaction is only needed when staking/unstaking for the first sleep;
                           subsequent staking/unstaking only requires you to perform the "Stake" or "Unstake"
                           transaction.
                         </p>
@@ -331,7 +331,7 @@ function Stake() {
                     <div className="data-row">
                       <p className="data-row-name">Your Balance</p>
                       <p className="data-row-value">
-                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(timeBalance), 4)} RUG</>}
+                        {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(timeBalance), 4)} SLEEP</>}
                       </p>
                     </div>
 
@@ -341,7 +341,7 @@ function Stake() {
                         <div className="data-row">
                           <p className="data-row-name">Your Warm Up Balance</p>
                           <p className="data-row-value">
-                            {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(warmupBalance), 4)} RUG</>}
+                            {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(warmupBalance), 4)} SLEEP</>}
                           </p>
                         </div>
 
@@ -350,7 +350,7 @@ function Stake() {
                             <div className="data-row">
                               <p className="data-row-name">Warm Up Balance with Rebase Rewards</p>
                               <p className="data-row-value">
-                                {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(gonsBalance), 4)} RUG</>}
+                                {isAppLoading ? <Skeleton width="80px" /> : <>{trim(Number(gonsBalance), 4)} SLEEP</>}
                               </p>
                             </div>
                           </>
@@ -393,7 +393,7 @@ function Stake() {
                           <Skeleton width="80px" />
                         ) : (
                           <>
-                            {trimmedMemoBalance} sRUG (${trimmedMemoBalanceInUSD})
+                            {trimmedMemoBalance} REST (${trimmedMemoBalanceInUSD})
                           </>
                         )}
                       </p>
@@ -406,7 +406,7 @@ function Stake() {
                           <Skeleton width="80px" />
                         ) : (
                           <>
-                            {nextRewardValue} sRUG (${trim(nextRewardInUSD, 2)})
+                            {nextRewardValue} REST (${trim(nextRewardInUSD, 2)})
                           </>
                         )}
                       </p>

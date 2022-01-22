@@ -4,14 +4,14 @@ import { StableBond, CustomBond } from "./stable-bond";
 
 import MimIcon from "../../assets/tokens/MIM.svg";
 import USDCIcon from "../../assets/tokens/USDC.e.png";
-import USDCRUGIcon from "../../assets/tokens/USDC-RUG.png";
+import USDCRUGIcon from "../../assets/tokens/USDC-SLEEP.png";
 import USDTIcon from "../../assets/tokens/USDT.e.png";
 import AvaxIcon from "../../assets/tokens/AVAX.svg";
-import MimRugIcon from "../../assets/tokens/RUG-MIM.svg";
-import AvaxRugIcon from "../../assets/tokens/RUG-AVAX.svg";
+import MimSleepIcon from "../../assets/tokens/SLEEP-MIM.svg";
+import AvaxSleepIcon from "../../assets/tokens/SLEEP-AVAX.svg";
 import BenQiIcon from "../../assets/tokens/QI.png";
 import MemoIcon from "../../assets/tokens/MEMO.png";
-import TimeRugIcon from "../../assets/tokens/TIMERUG.png";
+import TimeSleepIcon from "../../assets/tokens/TIMERUG.png";
 
 import {
   StableBondContract,
@@ -116,11 +116,11 @@ export const wavax = new CustomBond({
   available: true,
 });
 
-export const mimRug = new LPBond({
+export const mimSleep = new LPBond({
   name: "mim_time_lp",
-  displayName: "RUG-MIM JLP",
+  displayName: "SLEEP-MIM JLP",
   bondToken: "MIM",
-  bondIconSvg: MimRugIcon,
+  bondIconSvg: MimSleepIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
@@ -134,11 +134,11 @@ export const mimRug = new LPBond({
   available: true,
 });
 
-export const mimRugRlp = new LPBond({
+export const mimSleepRlp = new LPBond({
   name: "mim_time_rlp",
-  displayName: "RUG-MIM RLP",
+  displayName: "SLEEP-MIM RLP",
   bondToken: "MIM",
-  bondIconSvg: MimRugIcon,
+  bondIconSvg: MimSleepIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
@@ -148,13 +148,13 @@ export const mimRugRlp = new LPBond({
     },
   },
   lpUrl:
-    "https://swap.rug.farm/#/add/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+    "https://swap.sleep.farm/#/add/0x130966628846BFd36ff31a822705796e8cb8C18D/0xb8EF3a190b68175000B74B4160d325FD5024760e",
   available: true,
 });
 
-export const usdcRugRlp = new LPBond({
-  name: "usdc_rug_rlp",
-  displayName: "RUG-USDC RLP",
+export const usdcSleepRlp = new LPBond({
+  name: "usdc_sleep_rlp",
+  displayName: "SLEEP-USDC RLP",
   bondToken: "USDC",
   bondIconSvg: USDCRUGIcon,
   bondContractABI: LpBondContract,
@@ -166,17 +166,17 @@ export const usdcRugRlp = new LPBond({
     },
   },
   lpUrl:
-    "https://swap.rug.farm/#/add/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+    "https://swap.sleep.farm/#/add/0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664/0xb8EF3a190b68175000B74B4160d325FD5024760e",
   available: false,
 });
 
 //0x845E9E30a5b6c1F3522D1489A2d8B6Cd9381bf19
 
-export const avaxRug = new CustomLPBond({
-  name: "avax_rug_lp",
-  displayName: "RUG-AVAX JLP",
+export const avaxSleep = new CustomLPBond({
+  name: "avax_sleep_lp",
+  displayName: "SLEEP-AVAX JLP",
   bondToken: "AVAX",
-  bondIconSvg: AvaxRugIcon,
+  bondIconSvg: AvaxSleepIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
@@ -189,11 +189,11 @@ export const avaxRug = new CustomLPBond({
   available: true,
 });
 
-export const avaxRugRlp = new CustomLPBond({
-  name: "avax_rug_rlp",
-  displayName: "RUG-AVAX RLP",
+export const avaxSleepRlp = new CustomLPBond({
+  name: "avax_sleep_rlp",
+  displayName: "SLEEP-AVAX RLP",
   bondToken: "AVAX",
-  bondIconSvg: AvaxRugIcon,
+  bondIconSvg: AvaxSleepIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
@@ -202,15 +202,15 @@ export const avaxRugRlp = new CustomLPBond({
       reserveAddress: "0xB6E73230B0a8D1cAa44F186Ab8146F10ab49314A",
     },
   },
-  lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+  lpUrl: "https://swap.sleep.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
   available: true,
 });
 
-export const timeRugRlp = new CustomLPBond({
-  name: "time_rug_rlp",
-  displayName: "RUG-TIME RLP",
+export const timeSleepRlp = new CustomLPBond({
+  name: "time_sleep_rlp",
+  displayName: "SLEEP-TIME RLP",
   bondToken: "TIME",
-  bondIconSvg: AvaxRugIcon,
+  bondIconSvg: AvaxSleepIcon,
   bondContractABI: LpBondContract,
   reserveContractAbi: LpReserveContract,
   networkAddrs: {
@@ -219,7 +219,7 @@ export const timeRugRlp = new CustomLPBond({
       reserveAddress: "0x133933fc4316cB5f058321898507A32248f0A007",
     },
   },
-  lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+  lpUrl: "https://swap.sleep.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
   available: false,
 });
 
@@ -227,7 +227,7 @@ export const timeRugRlp = new CustomLPBond({
 //   name: "time_mim_rlp",
 //   displayName: "MIM-TIME RLP",
 //   bondToken: "TIME",
-//   bondIconSvg: TimeRugIcon,
+//   bondIconSvg: TimeSleepIcon,
 //   bondContractABI: LpBondContract,
 //   reserveContractAbi: LpReserveContract,
 //   networkAddrs: {
@@ -236,7 +236,7 @@ export const timeRugRlp = new CustomLPBond({
 //       reserveAddress: "0x133933fc4316cB5f058321898507A32248f0A007",
 //     },
 //   },
-//   lpUrl: "https://swap.rug.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
+//   lpUrl: "https://swap.sleep.farm/#/add/AVAX/0xb8EF3a190b68175000B74B4160d325FD5024760e",
 // });
 
 // export const avaxQi = new CustomLPBond({
@@ -255,4 +255,4 @@ export const timeRugRlp = new CustomLPBond({
 //   lpUrl: "https://app.pangolin.exchange/add/AVAX/0x8729438eb15e2c8b576fcc6aecda6a148776c0f5",
 // });
 
-export default [mim, wavax, usdc, usdt, benqi, avaxRugRlp, usdcRugRlp, mimRugRlp];
+export default [mim, wavax, usdc, usdt, benqi, avaxSleepRlp, usdcSleepRlp, mimSleepRlp];

@@ -159,7 +159,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
               await onBond();
             }}
           >
-            <p>{txnButtonText(pendingTransactions, "bond_" + bond.name, "Rug Me")}</p>
+            <p>{txnButtonText(pendingTransactions, "bond_" + bond.name, "Sleep Me")}</p>
           </div>
         ) : (
           <div
@@ -180,8 +180,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
         {!hasAllowance() && !useAvax && (
           <div className="help-text">
             <p className="help-text-desc">
-              Note: The "Approve" transaction is only needed when rugging yourself for the first rug; subsequent rugs
-              only requires you to perform the "Rug Me" transaction.
+              Note: The "Approve" transaction is only needed when sleeping yourself for the first sleep subsequent sleeps only requires you to perform the "Sleep Me" transaction.
             </p>
           </div>
         )}
@@ -205,14 +204,14 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
           <div className="data-row">
             <p className="bond-balance-title">You Will Get</p>
             <p className="price-data bond-balance-title">
-              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.bondQuote, 4)} RUG`}
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.bondQuote, 4)} SLEEP`}
             </p>
           </div>
 
           <div className={`data-row`}>
             <p className="bond-balance-title">Max You Can Buy</p>
             <p className="price-data bond-balance-title">
-              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.maxBondPrice, 4)} RUG`}
+              {isBondLoading ? <Skeleton width="100px" /> : `${trim(bond.maxBondPrice, 4)} SLEEP`}
             </p>
           </div>
 
@@ -230,7 +229,7 @@ function BondPurchase({ bond, slippage, recipientAddress }: IBondPurchaseProps) 
 
           <div className="data-row">
             <p className="bond-balance-title">Minimum purchase</p>
-            <p className="bond-balance-title">0.01 RUG</p>
+            <p className="bond-balance-title">0.01 SLEEP</p>
           </div>
 
           {recipientAddress !== address && (

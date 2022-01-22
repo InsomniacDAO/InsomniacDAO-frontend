@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { SRugTokenContract } from "../abi";
+import { RestContract } from "../abi";
 import { Networks } from "../constants/blockchain";
 import { getAddresses } from "src/constants/addresses";
 
@@ -9,7 +9,7 @@ export async function getBalanceForGons(
   provider: ethers.Signer | ethers.providers.Provider,
 ): Promise<number> {
   const addresses = getAddresses(networkID);
-  const srugContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
-  const balanceWithRebases = await srugContract.balanceForGons(gons);
+  const restContract = new ethers.Contract(addresses.SRUG_ADDRESS, RestContract, provider);
+  const balanceWithRebases = await restContract.balanceForGons(gons);
   return balanceWithRebases;
 }

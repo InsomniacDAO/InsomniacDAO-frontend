@@ -34,7 +34,7 @@ export class StableBond extends Bond {
     return this.getTreasuryBalance(networkID, provider);
   }
 
-  public getRugAmount(networkID: Networks, provider: StaticJsonRpcProvider) {
+  public getSleepAmount(networkID: Networks, provider: StaticJsonRpcProvider) {
     return new Promise<number>(reserve => reserve(0));
   }
 }

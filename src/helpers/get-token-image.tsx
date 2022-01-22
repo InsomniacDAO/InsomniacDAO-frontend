@@ -1,5 +1,5 @@
-import RugImg from "../assets/tokens/RUG.png";
-import SRugImg from "../assets/tokens/SRUG.png";
+import SleepImg from "../assets/tokens/SLEEP.png";
+import SSleepImg from "../assets/tokens/REST.png";
 
 function toUrl(tokenPath: string): string {
   const host = window.location.origin;
@@ -7,12 +7,12 @@ function toUrl(tokenPath: string): string {
 }
 
 export function getTokenUrl(name: string) {
-  if (name === "rug") {
-    return toUrl(RugImg);
+  if (name === "sleep") {
+    return toUrl(SleepImg);
   }
 
-  if (name === "srug") {
-    return toUrl(SRugImg);
+  if (name === "sleep") {
+    return toUrl(SSleepImg);
   }
 
   throw Error(`Token url doesn't support: ${name}`);

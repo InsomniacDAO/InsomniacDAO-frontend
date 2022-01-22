@@ -13,7 +13,7 @@ function Buy({ dexUrl }: ExchangeUrlProps) {
       <Zoom in={true}>
         <div className="choose-buy-view-card">
           <div className="choose-buy-view-card-header">
-            <p className="choose-buy-view-card-title"> Get Rugged</p>
+            <p className="choose-buy-view-card-title"> Get Sleepged</p>
           </div>
           <iframe src={dexUrl}></iframe>
         </div>

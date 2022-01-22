@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { StakingHelperContract, RugTokenContract, SRugTokenContract, StakingContract } from "../../abi";
+import { StakingHelperContract, SleepTokenContract, RestContract, StakingContract } from "../../abi";
 import { clearPendingTxn, fetchPendingTxns, getStakingTypeText } from "./pending-txns-slice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAccountSuccess, getBalances, loadWarmUpInfo } from "./account-slice";
@@ -29,25 +29,25 @@ export const changeApproval = createAsyncThunk(
     const addresses = getAddresses(networkID);
 
     const signer = provider.getSigner();
-    const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, signer);
-    const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, signer);
+    const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, SleepTokenContract, signer);
+    const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, RestContract, signer);
 
     let approveTx;
     try {
       const gasPrice = await getGasPrice(provider);
 
-      if (token === "rug") {
+      if (token === "sleep") {
         approveTx = await timeContract.approve(addresses.STAKING_HELPER_ADDRESS, ethers.constants.MaxUint256, {
           gasPrice,
         });
       }
 
-      if (token === "srug") {
+      if (token === "sleep") {
         approveTx = await memoContract.approve(addresses.STAKING_ADDRESS, ethers.constants.MaxUint256, { gasPrice });
       }
 
-      const text = "Approve " + (token === "rug" ? "Staking" : "Unstaking");
-      const pendingTxnType = token === "rug" ? "approve_staking" : "approve_unstaking";
+      const text = "Approve " + (token === "sleep" ? "Staking" : "Unstaking");
+      const pendingTxnType = token === "sleep" ? "approve_staking" : "approve_unstaking";
 
       dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
       await approveTx.wait();

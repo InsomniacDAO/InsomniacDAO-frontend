@@ -3,7 +3,7 @@ import { getAddresses, TOKEN_DECIMALS, DEFAULD_NETWORK } from "../../../constant
 import { useSelector } from "react-redux";
 import { Link, Fade, Popper } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-import "./rug-menu.scss";
+import "./sleep-menu.scss";
 import { IReduxState } from "../../../store/slices/state.interface";
 import { getTokenUrl } from "../../../helpers";
 import classnames from "classnames";
@@ -52,17 +52,17 @@ function TimeMenu() {
   const open = Boolean(anchorEl);
 
   return (
-    <div className="rug-menu-root" onMouseEnter={e => handleClick(e)} onMouseLeave={e => handleClick(e)}>
-      <div className="rug-menu-btn">
-        <p>BUY RUG</p>
+    <div className="sleep-menu-root" onMouseEnter={e => handleClick(e)} onMouseLeave={e => handleClick(e)}>
+      <div className="sleep-menu-btn">
+        <p>BUY SLEEP</p>
       </div>
 
-      <Popper className="rug-menu-popper" open={open} anchorEl={anchorEl} transition>
+      <Popper className="sleep-menu-popper" open={open} anchorEl={anchorEl} transition>
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={200}>
             <div className="tooltip">
-              {/* <Link component={NavLink} className="tooltip-item" to="/buy/rugDexUSDC">
-                <p>Buy on RugSwap</p>
+              {/* <Link component={NavLink} className="tooltip-item" to="/buy/sleepDexUSDC">
+                <p>Buy on SleepSwap</p>
               </Link> */}
               <Link component={NavLink} to="/buy/tjDex" className="tooltip-item">
                 <p>Buy on TradeJoe</p>
@@ -72,8 +72,8 @@ function TimeMenu() {
                   <div className="divider" />
                   <p className="add-tokens-title">ADD TOKEN TO WALLET</p>
                   <div className="divider" />
-                  <div className="tooltip-item" onClick={addTokenToWallet("RUG", RUG_ADDRESS)}>
-                    <p>RUG</p>
+                  <div className="tooltip-item" onClick={addTokenToWallet("SLEEP", RUG_ADDRESS)}>
+                    <p>SLEEP</p>
                   </div>
                   <div className="tooltip-item" onClick={addTokenToWallet("SRUG", SRUG_ADDRESS)}>
                     <p>SRUG</p>

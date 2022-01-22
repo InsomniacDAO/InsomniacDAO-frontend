@@ -144,7 +144,7 @@
     },
     {
       "inputs": [],
-      "name": "RUG",
+      "name": "SLEEP",
       "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"

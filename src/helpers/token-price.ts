@@ -1,7 +1,7 @@
 import { JsonRpcProvider, Provider, StaticJsonRpcProvider } from "@ethersproject/providers";
 import axios from "axios";
 import { ethers } from "ethers";
-import { abi as MemoContract } from "../abi/tokens/SRugContract.json";
+import { abi as MemoContract } from "../abi/tokens/RestContract.json";
 import { getMainnetURI } from "src/hooks/web3/helpers";
 
 const cache: { [key: string]: number } = {};

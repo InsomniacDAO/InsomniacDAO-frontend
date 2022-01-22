@@ -16,7 +16,7 @@ function Calculator() {
     return state.app.stakingAPY;
   });
   const memoBalance = useSelector<IReduxState, string>(state => {
-    return state.account.balances && state.account.balances.srug;
+    return state.account.balances && state.account.balances.sleep;
   });
 
   const trimmedStakingAPY = trim(stakingAPY * 100, 1);
@@ -33,16 +33,16 @@ function Calculator() {
   const [potentialReturn, setPotentialReturn] = useState("0");
 
   const calcInitialInvestment = () => {
-    const srug = Number(memoAmount) || 0;
+    const sleep = Number(memoAmount) || 0;
     const price = parseFloat(priceAtPurchase) || 0;
-    const amount = srug * price;
+    const amount = sleep * price;
     return trim(amount, 2);
   };
 
   const calcCurrentWealth = () => {
-    const srug = Number(memoAmount) || 0;
+    const sleep = Number(memoAmount) || 0;
     const price = parseFloat(trimeMarketPrice);
-    const amount = srug * price;
+    const amount = sleep * price;
     return trim(amount, 2);
   };
 
@@ -78,7 +78,7 @@ function Calculator() {
             <Grid item>
               <div className="calculator-card-header">
                 <p className="calculator-card-header-title">Super Accurate Calculator</p>
-                <p className="calculator-card-header-subtitle">Estimate how much you get rugged...</p>
+                <p className="calculator-card-header-subtitle">Estimate how much you get sleepged...</p>
               </div>
             </Grid>
             <Grid item>
@@ -86,7 +86,7 @@ function Calculator() {
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={4} md={4} lg={4}>
                     <div className="calculator-card-apy">
-                      <p className="calculator-card-metrics-title">RUG Price</p>
+                      <p className="calculator-card-metrics-title">SLEEP Price</p>
                       <p className="calculator-card-metrics-value">
                         {isAppLoading ? <Skeleton width="100px" /> : `$${trimeMarketPrice}`}
                       </p>
@@ -168,7 +168,7 @@ function Calculator() {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <div className="calculator-card-action-area-inp-wrap">
-                        <p className="calculator-card-action-area-inp-wrap-title">RUG price at purchase ($)</p>
+                        <p className="calculator-card-action-area-inp-wrap-title">SLEEP price at purchase ($)</p>
                         <OutlinedInput
                           type="number"
                           placeholder="Amount"
@@ -191,7 +191,7 @@ function Calculator() {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                       <div className="calculator-card-action-area-inp-wrap">
-                        <p className="calculator-card-action-area-inp-wrap-title">Future RUG market price ($)</p>
+                        <p className="calculator-card-action-area-inp-wrap-title">Future SLEEP market price ($)</p>
                         <OutlinedInput
                           type="number"
                           placeholder="Amount"
@@ -238,9 +238,9 @@ function Calculator() {
                     </p>
                   </div>
                   <div className="data-row">
-                    <p className="data-row-name">RUG rewards estimation</p>
+                    <p className="data-row-name">SLEEP rewards estimation</p>
                     <p className="data-row-value">
-                      {isAppLoading ? <Skeleton width="80px" /> : <>{rewardsEstimation} RUG</>}
+                      {isAppLoading ? <Skeleton width="80px" /> : <>{rewardsEstimation} SLEEP</>}
                     </p>
                   </div>
                   <div className="data-row">

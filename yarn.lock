@@ -2208,9 +2208,9 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@rugenerous/interface@^1.0.0":
+"@insomniacdao/interface@^1.0.0":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rugenerous/interface/-/interface-1.0.0.tgz#b7f3125bc5176ed06dcbf28ac61c5e9e1075adf1"
+  resolved "https://registry.yarnpkg.com/@insomniacdao/interface/-/interface-1.0.0.tgz#b7f3125bc5176ed06dcbf28ac61c5e9e1075adf1"
   integrity sha512-HwWW1cXzTau768xeFvDvHFng2QPqKozbMI37ik9SUA7mxG1U+FeP7uyK3oLIIHrWGcOAO/UuIKqMToFhyMwnCQ==
   dependencies:
     "@types/crypto-js" "^4.0.2"

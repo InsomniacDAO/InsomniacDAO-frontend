@@ -261,7 +261,7 @@ function Zapin({ open, handleClose, bond }: IZapinProps) {
             </div>
             {!hasAllowance() && !token.isAvax && (
               <div className="zapin-header-help-text">
-                <p>Note: The "Approve" transaction is only needed when bonding for the first rug</p>
+                <p>Note: The "Approve" transaction is only needed when bonding for the first sleep</p>
                 <p>for each token; subsequent bonding only requires you to perform the</p>
                 <p>"zapin&mint" transaction.</p>
               </div>
@@ -296,13 +296,13 @@ function Zapin({ open, handleClose, bond }: IZapinProps) {
               <div className="data-row">
                 <p className="data-row-name">Approximately you will get</p>
                 <p className="data-row-value">
-                  {isLoading ? <Skeleton width="100px" /> : `~ ${trim(bond.bondQuote, 4)} RUG`}
+                  {isLoading ? <Skeleton width="100px" /> : `~ ${trim(bond.bondQuote, 4)} SLEEP`}
                 </p>
               </div>
               <div className="data-row">
                 <p className="data-row-name">Max You Can Buy</p>
                 <p className="data-row-value">
-                  {isLoading ? <Skeleton width="100px" /> : `${trim(bond.maxBondPrice, 4)} RUG`}
+                  {isLoading ? <Skeleton width="100px" /> : `${trim(bond.maxBondPrice, 4)} SLEEP`}
                 </p>
               </div>
               <div className="data-row">
@@ -313,7 +313,7 @@ function Zapin({ open, handleClose, bond }: IZapinProps) {
               </div>
               <div className="data-row">
                 <p className="data-row-name">Minimum purchase</p>
-                <p className="data-row-value">0.01 RUG</p>
+                <p className="data-row-value">0.01 SLEEP</p>
               </div>
               {recipientAddress !== address && (
                 <div className="data-row">

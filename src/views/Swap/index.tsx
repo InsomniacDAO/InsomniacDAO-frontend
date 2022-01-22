@@ -9,7 +9,7 @@ import { useWeb3Context } from "../../hooks";
 import { IPendingTxn, isPendingTxn, txnButtonText } from "../../store/slices/pending-txns-slice";
 import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
-//import Swap from "@rugenerous/interface/src/pages/Swap"
+//import Swap from "@insomniacdao/interface/src/pages/Swap"
 function Swap() {
   const [anchorEl, setAnchorEl] = useState(null);
 

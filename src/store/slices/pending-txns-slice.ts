@@ -29,7 +29,7 @@ const pendingTxnsSlice = createSlice({
 // };
 
 export const getStakingTypeText = (action: string) => {
-  return action.toLowerCase() === "stake" ? "Staking RUG" : "Unstaking RUGGED";
+  return action.toLowerCase() === "stake" ? "Staking SLEEP" : "Unstaking RUGGED";
 };
 
 export const getWarmupTypeText = (action: string) => {

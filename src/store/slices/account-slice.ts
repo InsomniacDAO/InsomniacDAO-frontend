@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { getAddresses } from "../../constants";
-import { RugTokenContract, SRugTokenContract, MimTokenContract, StakingContract } from "../../abi";
+import { SleepTokenContract, RestContract, MimTokenContract, StakingContract } from "../../abi";
 import { getBalanceForGons, setAll } from "../../helpers";
 
 import { createSlice, createSelector, createAsyncThunk } from "@reduxjs/toolkit";
@@ -20,8 +20,8 @@ interface IGetBalances {
 
 interface IAccountBalances {
   balances: {
-    srug: string;
-    rug: string;
+    sleep: string;
+    rest: string;
   };
 }
 
@@ -30,15 +30,15 @@ export const getBalances = createAsyncThunk(
   async ({ address, networkID, provider }: IGetBalances): Promise<IAccountBalances> => {
     const addresses = getAddresses(networkID);
 
-    const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
+    const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, RestContract, provider);
     const memoBalance = await memoContract.balanceOf(address);
-    const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
+    const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, SleepTokenContract, provider);
     const timeBalance = await timeContract.balanceOf(address);
 
     return {
       balances: {
-        srug: ethers.utils.formatUnits(memoBalance, "gwei"),
-        rug: ethers.utils.formatUnits(timeBalance, "gwei"),
+        rest: ethers.utils.formatUnits(memoBalance, "gwei"),
+        sleep: ethers.utils.formatUnits(timeBalance, "gwei"),
       },
     };
   },
@@ -53,6 +53,7 @@ interface IWarmUpInfo {
     gonsBalance: string;
   };
 }
+
 
 interface ILoadAccountDetails {
   address: string;
@@ -89,12 +90,12 @@ export const loadWarmUpInfo = createAsyncThunk(
 
 interface IUserAccountDetails {
   balances: {
-    rug: string;
-    srug: string;
+    sleep: string;
+    rest: string;
   };
   staking: {
-    rug: number;
-    srug: number;
+    sleep: number;
+    rest: number;
   };
 }
 
@@ -109,25 +110,25 @@ export const loadAccountDetails = createAsyncThunk(
     const addresses = getAddresses(networkID);
 
     if (addresses.RUG_ADDRESS) {
-      const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, RugTokenContract, provider);
+      const timeContract = new ethers.Contract(addresses.RUG_ADDRESS, SleepTokenContract, provider);
       timeBalance = await timeContract.balanceOf(address);
       stakeAllowance = await timeContract.allowance(address, addresses.STAKING_HELPER_ADDRESS);
     }
 
     if (addresses.SRUG_ADDRESS) {
-      const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, SRugTokenContract, provider);
+      const memoContract = new ethers.Contract(addresses.SRUG_ADDRESS, RestContract, provider);
       memoBalance = await memoContract.balanceOf(address);
       unstakeAllowance = await memoContract.allowance(address, addresses.STAKING_ADDRESS);
     }
 
     return {
       balances: {
-        srug: ethers.utils.formatUnits(memoBalance, "gwei"),
-        rug: ethers.utils.formatUnits(timeBalance, "gwei"),
+        sleep: ethers.utils.formatUnits(memoBalance, "gwei"),
+        rest: ethers.utils.formatUnits(timeBalance, "gwei"),
       },
       staking: {
-        rug: Number(stakeAllowance),
-        srug: Number(unstakeAllowance),
+        sleep: Number(stakeAllowance),
+        rest: Number(unstakeAllowance),
       },
     };
   },
@@ -272,13 +273,13 @@ export const calculateUserTokenDetails = createAsyncThunk(
 export interface IAccountSlice {
   bonds: { [key: string]: IUserBondDetails };
   balances: {
-    srug: string;
-    rug: string;
+    sleep: string;
+    rest: string;
   };
   loading: boolean;
   staking: {
-    rug: number;
-    srug: number;
+    sleep: number;
+    rest: number;
   };
   warmupInfo: {
     expiry: string;
@@ -293,8 +294,8 @@ export interface IAccountSlice {
 const initialState: IAccountSlice = {
   loading: true,
   bonds: {},
-  balances: { srug: "", rug: "" },
-  staking: { rug: 0, srug: 0 },
+  balances: { sleep: "", rest: "" },
+  staking: { sleep: 0, rest: 0 },
   warmupInfo: { expiry: "", deposit: "", epoch: "", gons: "", gonsBalance: "" },
   tokens: {},
 };

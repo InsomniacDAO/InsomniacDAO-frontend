@@ -50,7 +50,7 @@ export default function BasicModal(onChangeWarmup: Function) {
             Are you sure you want to exit the Warm-Up?
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Exiting Warm-Up will return your $RUG balance to your account, but will not make you eligible for rebases on
+            Exiting Warm-Up will return your $SLEEP balance to your account, but will not make you eligible for rebases on
             the current balance in warm-up.
           </Typography>
           <br />

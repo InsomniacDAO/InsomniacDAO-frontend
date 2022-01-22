@@ -3,7 +3,7 @@ SHELL=bash
 
 MAKEFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 ##########################
-IMAGE_NAME=rug-frontend
+IMAGE_NAME=sleep-frontend
 
 PWD := $(shell (dirname $(MAKEFILE_PATH)))
 ##############

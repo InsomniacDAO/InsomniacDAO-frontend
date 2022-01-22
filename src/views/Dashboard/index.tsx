@@ -20,7 +20,7 @@ function Dashboard() {
           <Grid container spacing={4}>
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
-                <p className="card-title">RUG Price</p>
+                <p className="card-title">SLEEP Price</p>
                 <p className="card-value">
                   {isAppLoading ? <Skeleton width="100px" /> : `$${trim(app.marketPrice, 2)}`}
                 </p>
@@ -123,7 +123,7 @@ function Dashboard() {
               <div className="dashboard-card">
                 <p className="card-title">Current Index</p>
                 <p className="card-value">
-                  {isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(app.currentIndex), 2)} RUG`}
+                  {isAppLoading ? <Skeleton width="250px" /> : `${trim(Number(app.currentIndex), 2)} SLEEP`}
                 </p>
               </div>
             </Grid>
@@ -148,7 +148,7 @@ function Dashboard() {
 
             <Grid item lg={6} md={6} sm={6} xs={12}>
               <div className="dashboard-card">
-                <p className="card-title">Backing per $RUG</p>
+                <p className="card-title">Backing per $SLEEP</p>
                 <p className="card-value">
                   {isAppLoading ? (
                     <Skeleton width="250px" />

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Social from "./social";
 import StakeIcon from "../../../assets/icons/stake.svg";
 import BondIcon from "../../../assets/icons/bond.svg";
-import RugenerousIcon from "../../../assets/rugNoBg.png";
+import InsomniacdaoIcon from "../../../assets/sleepNoBg.png";
 import DashboardIcon from "../../../assets/icons/dashboard.svg";
 import ForumIcon from "../../../assets/icons/forum.svg";
 import { trim, shorten } from "../../../helpers";
@@ -39,8 +39,8 @@ function NavContent() {
   return (
     <div className="dapp-sidebar">
       <div className="branding-header ">
-        <Link href="https://www.rug.farm" target="_self">
-          <img className="logo-style" alt="" src={RugenerousIcon} />
+        <Link href="https://www.sleep.farm" target="_self">
+          <img className="logo-style" alt="" src={InsomniacdaoIcon} />
         </Link>
 
         {address && (
@@ -93,7 +93,7 @@ function NavContent() {
           >
             <div className="dapp-menu-item">
               <img alt="" src={BondIcon} />
-              <p>Some Ruggy Mints</p>
+              <p>Some Sleepgy Mints</p>
             </div>
           </Link>
 
@@ -141,11 +141,11 @@ function NavContent() {
         </div>
       </div>
       <div className="dapp-menu-doc-link">
-        <Link href="https://snapshot.org/#/saynotorug.eth" target="_blank">
+        <Link href="https://snapshot.org/#/saynotosleep.eth" target="_blank">
           <img alt="" src={ForumIcon} />
           <p>Governance</p>
         </Link>
-        <Link href="https://docs.rug.farm" target="_blank">
+        <Link href="https://docs.sleep.farm" target="_blank">
           <img alt="" src={DocsIcon} />
           <p>Documentation</p>
         </Link>

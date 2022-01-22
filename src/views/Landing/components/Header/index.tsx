@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./header.scss";
-import { ReactComponent as RugenerousIcon } from "../../../../assets/RuGenerous.svg";
+import { ReactComponent as InsomniacdaoIcon } from "../../../../assets/Insomniacdao.svg";
 import { SvgIcon, Link, Box, Popper, Fade } from "@material-ui/core";
 import { ReactComponent as GitHub } from "../../../../assets/icons/github.svg";
 import { ReactComponent as Twitter } from "../../../../assets/icons/twitter.svg";
@@ -20,7 +20,7 @@ function Header() {
     <div className="landing-header">
       <SvgIcon
         color="primary"
-        component={RugenerousIcon}
+        component={InsomniacdaoIcon}
         viewBox="0 0 400 40"
         style={{ minWidth: 174, minHeight: 40 }}
       />
@@ -31,11 +31,11 @@ function Header() {
             {({ TransitionProps }) => (
               <Fade {...TransitionProps} timeout={200}>
                 <div className="tooltip">
-                  <Link className="tooltip-item" href="https://github.com/Rugenerous" target="_blank">
+                  <Link className="tooltip-item" href="https://github.com/Insomniacdao" target="_blank">
                     <SvgIcon color="primary" component={GitHub} />
                     <p>GitHub</p>
                   </Link>
-                  <Link className="tooltip-item" href="https://twitter.com/RUGenerous" target="_blank">
+                  <Link className="tooltip-item" href="https://twitter.com/Insomniacdao" target="_blank">
                     <SvgIcon color="primary" component={Twitter} />
                     <p>Twitter</p>
                   </Link>

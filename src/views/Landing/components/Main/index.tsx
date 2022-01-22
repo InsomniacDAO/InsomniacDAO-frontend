@@ -9,12 +9,12 @@ function Main() {
         <p>R U Generous?</p>
       </div>
       <div className="landing-main-btns-wrap">
-        <Link href="https://app.rug.farm" target="_blank" rel="noreferrer">
+        <Link href="https://app.sleep.farm" target="_blank" rel="noreferrer">
           <div className="landing-main-btn">
             <p>Enter App</p>
           </div>
         </Link>
-        <Link href="https://docs.rug.farm/" target="_blank" rel="noreferrer">
+        <Link href="https://docs.sleep.farm/" target="_blank" rel="noreferrer">
           <div className="landing-main-btn">
             <p>Documentation</p>
           </div>

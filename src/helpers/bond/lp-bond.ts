@@ -47,10 +47,10 @@ export class LPBond extends Bond {
     const token0Contract = new ethers.Contract(token0, ERC20Contract, provider);
     const token0Decimals = await token0Contract.decimals();
 
-    const isRug = token1.toLowerCase() === addresses.RUG_ADDRESS.toLowerCase();
+    const isRest = token1.toLowerCase() === addresses.RUG_ADDRESS.toLowerCase();
     var tokenUSD;
 
-    if (isRug) {
+    if (isRest) {
       tokenUSD = (valuation / Math.pow(10, 9)) * (markdown / Math.pow(10, token0Decimals));
     } else {
       tokenUSD = (valuation / Math.pow(10, 9)) * (markdown / Math.pow(10, token1Decimals));
@@ -63,7 +63,7 @@ export class LPBond extends Bond {
     return this.getReserves(networkID, provider, true);
   }
 
-  public getRugAmount(networkID: Networks, provider: StaticJsonRpcProvider) {
+  public getSleepAmount(networkID: Networks, provider: StaticJsonRpcProvider) {
     return this.getReserves(networkID, provider, false);
   }
 
@@ -76,16 +76,16 @@ export class LPBond extends Bond {
 
     const token1: string = await token.token1();
 
-    const isRug = token1.toLowerCase() === addresses.RUG_ADDRESS.toLowerCase();
+    const isRest = token1.toLowerCase() === addresses.RUG_ADDRESS.toLowerCase();
 
     return isToken
-      ? this.toTokenDecimal(false, isRug ? reserve0 : reserve1) //, isRug ? Number(token0Decimals) : Number(token1Decimals))
-      : this.toTokenDecimal(true, isRug ? reserve1 : reserve0); //, isRug ? Number(token1Decimals) : Number(token0Decimals));
+      ? this.toTokenDecimal(false, isRest ? reserve0 : reserve1) //, isRest ? Number(token0Decimals) : Number(token1Decimals))
+      : this.toTokenDecimal(true, isRest ? reserve1 : reserve0); //, isRest ? Number(token1Decimals) : Number(token0Decimals));
   }
 
-  private toTokenDecimal(isRug: boolean, reserve: number) {
+  private toTokenDecimal(isRest: boolean, reserve: number) {
     //, decimals: number) {
-    return isRug ? reserve / Math.pow(10, 9) : reserve / Math.pow(10, 18);
+    return isRest ? reserve / Math.pow(10, 9) : reserve / Math.pow(10, 18);
   }
 }
 
