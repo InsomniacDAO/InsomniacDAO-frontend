@@ -46,7 +46,7 @@ function ChooseBond() {
       <Zoom in={true}>
         <div className="choose-bond-view-card">
           <div className="choose-bond-view-card-header">
-            <p className="choose-bond-view-card-title"> Get Sleepged</p>
+            <p className="choose-bond-view-card-title"> Go To Bed</p>
           </div>
 
           <Grid container item xs={12} spacing={2} className="choose-bond-view-card-metrics">

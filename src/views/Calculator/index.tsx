@@ -77,8 +77,8 @@ function Calculator() {
           <Grid className="calculator-card-grid" container direction="column" spacing={2}>
             <Grid item>
               <div className="calculator-card-header">
-                <p className="calculator-card-header-title">Super Accurate Calculator</p>
-                <p className="calculator-card-header-subtitle">Estimate how much you get sleepged...</p>
+                <p className="calculator-card-header-title">Sleep Monitor</p>
+                <p className="calculator-card-header-subtitle">Estimate how much you rest you get...</p>
               </div>
             </Grid>
             <Grid item>
@@ -86,7 +86,7 @@ function Calculator() {
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={4} md={4} lg={4}>
                     <div className="calculator-card-apy">
-                      <p className="calculator-card-metrics-title">SLEEP Price</p>
+                      <p className="calculator-card-metrics-title">Slee Price</p>
                       <p className="calculator-card-metrics-value">
                         {isAppLoading ? <Skeleton width="100px" /> : `$${trimeMarketPrice}`}
                       </p>

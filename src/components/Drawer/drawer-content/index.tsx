@@ -39,7 +39,7 @@ function NavContent() {
   return (
     <div className="dapp-sidebar">
       <div className="branding-header ">
-        <Link href="https://www.sleep.farm" target="_self">
+        <Link href="TBD" target="_self">
           <img className="logo-style" alt="" src={InsomniacdaoIcon} />
         </Link>
 
@@ -64,7 +64,7 @@ function NavContent() {
           >
             <div className="dapp-menu-item">
               <img alt="" src={DashboardIcon} />
-              <p>Definitely Real Stats</p>
+              <p>Pillow Talk</p>
             </div>
           </Link>
 
@@ -78,7 +78,7 @@ function NavContent() {
           >
             <div className="dapp-menu-item">
               <img alt="" src={StakeIcon} />
-              <p>A Ponzi Yield</p>
+              <p>The Sleep Center</p>
             </div>
           </Link>
 
@@ -93,7 +93,7 @@ function NavContent() {
           >
             <div className="dapp-menu-item">
               <img alt="" src={BondIcon} />
-              <p>Some Sleepgy Mints</p>
+              <p>Dreamy Mints</p>
             </div>
           </Link>
 
@@ -141,11 +141,11 @@ function NavContent() {
         </div>
       </div>
       <div className="dapp-menu-doc-link">
-        <Link href="https://snapshot.org/#/saynotosleep.eth" target="_blank">
+        <Link href="" target="_blank">
           <img alt="" src={ForumIcon} />
           <p>Governance</p>
         </Link>
-        <Link href="https://docs.sleep.farm" target="_blank">
+        <Link href="TBD" target="_blank">
           <img alt="" src={DocsIcon} />
           <p>Documentation</p>
         </Link>
